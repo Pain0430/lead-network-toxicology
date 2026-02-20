@@ -1,0 +1,5 @@
+靶点,化合物,结合位点,结合能,备注
+ACE,Pb2+,Zn2+ pocket,-5.8 kcal/mol,推测
+ACE,Captopril,S1/S2+Zn2+,-7.5 kcal/mol,阳性对照
+NOS3,Pb2+,BH4 pocket,-4.5 kcal/mol,推测
+NOS3,L-NAME,Heme domain,-6.8 kcal/mol,阳性对照
