@@ -1,178 +1,85 @@
-# 🔬 铅 (Lead) 环境毒理学研究
-## Network Toxicology + Virtual Cell + NHANES
+# 🔬 铅 (Lead) 环境毒理学研究 - 创新方向
+## Network Toxicology + CKM Syndrome + NHANES
 
-基于网络毒理学、虚拟细胞模拟和NHANES真实世界数据的铅毒性机制研究。
-
----
-
-## 📊 项目概述
-
-```
-污染物选取 → 网络毒理学预测 → 虚拟细胞模拟 → NHANES人群验证 → AOP构建
-```
-
-### 研究流程
-
-1. **网络毒理学分析** - 预测铅的毒性靶点和通路
-2. **VCell虚拟细胞模拟** - 动态验证剂量-效应关系
-3. **NHANES数据分析** - 人群暴露-健康关联分析
+**创新方向**: 铅与CKM (Cardiovascular-Kidney-Metabolic) 综合征的关联研究
 
 ---
 
-## 📁 文件结构
+## 📊 研究创新点
+
+### 背景突破
+- **传统研究**: 儿童铅中毒 → 神经发育；成人铅中毒 → 神经退行性疾病
+- **本研究创新**: 聚焦**代谢性疾病**和**CKM综合征**
+
+### CKM综合征 (2024年AHA新概念)
+- **C**ardiovascular: 心血管疾病
+- **K**idney: 慢性肾脏病
+- **M**etabolic: 代谢综合征(肥胖、糖尿病)
+
+### 综合指标创新
+1. **CKM风险评分**: 整合高血压、糖尿病、心脏病、肾病、代谢综合征
+2. **TyG指数**: 甘油三酯-葡萄糖指数 (胰岛素抵抗指标)
+3. **中介效应分析**: 铅 → 代谢指标 → CKM
+
+---
+
+## 📊 初步分析结果 (NHANES 2021-2023)
+
+### 样本量: 7,586人
+
+### 血铅分布
+| 指标 | 值 |
+|------|-----|
+| 均值 | 0.87 μg/dL |
+| 中位数 | 0.64 μg/dL |
+| P95 | 2.14 μg/dL |
+| P99 | 4.25 μg/dL |
+
+### 铅与CKM指标相关性 (Spearman)
+
+| CKM指标 | r值 | p值 | 显著性 |
+|---------|-----|-----|--------|
+| CKM综合风险评分 | **0.183** | <0.001 | *** |
+| 糖化血红蛋白 | **0.205** | <0.001 | *** |
+| 代谢综合征评分 | 0.094 | <0.001 | *** |
+| 甘油三酯 | 0.080 | <0.001 | *** |
+
+### 回归分析
+- β = 0.0801, p < 0.001
+- 血铅每升高1 μg/dL，CKM风险评分增加0.08分
+
+---
+
+## 📁 项目文件
 
 ```
 lead-network-toxicology/
-├── README.md                    # 本文件
-├── lead_network_toxicology.py  # 网络毒理学分析主程序
-├── download_nhanes.py          # NHANES数据下载工具
-├── analyze_nhanes.py           # NHANES数据分析
-├── VCELL_TUTORIAL.md           # VCell使用教程
-├── output/                     # 分析结果
-│   ├── lead_target_genes.txt   # 靶点基因列表
-│   ├── lead_pathways.csv       # 通路富集结果
-│   ├── lead_network_toxicology.html  # 交互式网络图
-│   └── nhanes_lead_blood.csv  # NHANES血铅数据
-├── nhanes_data/               # NHANES原始数据
-│   ├── PBCD_L.xpt             # 血重金属 (铅、镉、汞、硒、锰)
-│   ├── DEMO_L.xpt             # 人口统计数据
-│   ├── MCQ_L.xpt              # 健康问卷
-│   └── ...
-└── requirements.txt            # Python依赖
+├── README.md                        # 项目说明
+├── lead_network_toxicology.py       # 网络毒理学分析
+├── lead_ckm_analysis.py             # CKM综合征分析 (创新!)
+├── download_nhanes.py               # 数据下载
+├── VCELL_TUTORIAL.md               # VCell教程
+├── nhanes_data/                    # NHANES原始数据
+└── output/                         # 分析结果
 ```
 
 ---
 
-## 🔬 网络毒理学结果
+## 🔬 下一步计划
 
-### 靶点基因: 96个
-
-### KEGG通路富集 (Top 10)
-
-| 通路 | 重叠基因 | p-value |
-|------|---------|---------|
-| 氧化应激反应 | 9/9 | 1e-15 |
-| 血红素合成 | 4/4 | 1e-14 |
-| 金属转运 | 5/5 | 1e-13 |
-| 炎症反应 | 6/6 | 1e-12 |
-| 细胞凋亡 | 6/6 | 1e-11 |
-| 神经毒性 | 7/7 | 1e-10 |
-| DNA损伤修复 | 6/6 | 1e-09 |
-| 肾毒性 | 6/6 | 1e-08 |
-| MAPK信号 | 4/6 | 1e-08 |
-| 心血管疾病 | 6/6 | 1e-07 |
-
----
-
-## 📊 NHANES 数据
-
-### 已下载数据 (2021-2023)
-
-| 文件 | 描述 | 大小 |
-|------|------|------|
-| PBCD_L.xpt | 血铅、血镉、血汞、硒、锰 | 1.1 MB |
-| DEMO_L.xpt | 人口统计学 | 2.5 MB |
-| MCQ_L.xpt | 健康状况问卷 | 3.2 MB |
-| CBC_L.xpt | 血常规 | 1.5 MB |
-| HDL_L.xpt | 血脂 | 253 KB |
-| TRIGLY_L.xpt | 甘油三酯 | 314 KB |
-| GHB_L.xpt | 糖化血红蛋白 | 170 KB |
-| IHGEM_L.xpt | 血汞形态 | 752 KB |
-
-### 血铅统计 (NHANES 2021-2023)
-
-| 指标 | 值 |
-|------|-----|
-| 样本数 | 7,586 |
-| 均值 | 0.87 μg/dL |
-| 中位数 | 0.64 μg/dL |
-| 最小值 | 0.085 μg/dL |
-| 最大值 | 48.07 μg/dL |
-
----
-
-## 🚀 快速开始
-
-### 1. 安装依赖
-
-```bash
-pip install pandas numpy requests scipy
-pip install pyreadstat  # 读取SAS格式
-pip install xgboost shap  # 机器学习
-```
-
-### 2. 运行网络毒理学分析
-
-```bash
-python lead_network_toxicology.py
-```
-
-### 3. 下载NHANES数据
-
-```bash
-python download_nhanes.py
-```
-
-### 4. 分析NHANES数据
-
-```bash
-python analyze_nhanes.py
-```
-
----
-
-## 🔧 工具与数据库
-
-### 网络毒理学
-
-| 工具 | 用途 |
-|------|------|
-| CTD | 毒物基因组学数据库 |
-| SwissTargetPrediction | 靶点预测 |
-| STRING | 蛋白互作网络 |
-| KEGG/Reactome | 通路富集 |
-| Cytoscape | 网络可视化 |
-
-### 虚拟细胞
-
-| 工具 | 用途 |
-|------|------|
-| VCell | 虚拟细胞建模平台 |
-| COPASI | 细胞通路模拟 |
-| tellurium | Python细胞建模 |
-
-### 数据分析
-
-| 工具 | 用途 |
-|------|------|
-| Python/Pandas | 数据处理 |
-| R/NHANES | 流行病学分析 |
-| XGBoost/SHAP | 机器学习建模 |
+1. **完善数据**: 获取血压、腰围数据计算更完整的CKM指标
+2. **中介效应**: 构建结构方程模型 (铅→TyG→CKM)
+3. **网络毒理学整合**: 将CKM相关靶点与网络预测对比
+4. **VCell模拟**: 验证铅对代谢通路的动态影响
 
 ---
 
 ## 📚 参考文献
 
-1. 网络毒理学及其在外源性化学物毒性研究的应用概况. JEOM, 2025
-2. The Virtual Cell Modeling and Simulation Software Environment. PMC, 2009
-3. Construction of environmental risk score using ML: metal mixtures, oxidative stress and CVD in NHANES. Environmental Health, 2017
-4. The Adverse Outcome Pathway: A Multifaceted Framework. PMC, 2018
+1. CKM Syndrome - AHA Presidential Advisory (2024)
+2. Heavy metals and CKM syndrome - Frontiers in Nutrition (2025)
+3. Network toxicology and its application - JEOM (2025)
 
 ---
 
-## 📅 更新日志
-
-- **2026-02-20**: 初始版本
-  - 完成网络毒理学分析 (96个靶点, 10条通路)
-  - 下载NHANES 2021-2023数据 (8个文件)
-  - 创建VCell教程文档
-
----
-
-## 📧 联系
-
-如有问题，请提交 Issue 或联系作者。
-
----
-
-*本项目用于科研目的，数据来源为公开的NHANES数据库*
+*更新: 2026-02-20*
