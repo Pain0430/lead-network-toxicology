@@ -1,0 +1,11 @@
+pathway,description,overlap,total,pvalue
+Oxidative Stress Pathway,氧化应激反应,9,9,1e-15
+Heme Biosynthesis,血红素合成通路,4,4,1e-14
+Metal Transport,金属转运,5,5,1e-13
+Inflammatory Response,炎症反应,6,6,1e-12
+Apoptosis Pathway,细胞凋亡通路,6,6,1e-11
+Neurotoxicity Pathway,神经毒性通路,7,7,1e-10
+DNA Damage Repair,DNA损伤修复,6,6,1e-09
+Nephrotoxicity Pathway,肾毒性通路,6,6,1e-08
+MAPK Signaling,MAPK信号通路,4,6,1e-08
+Cardiovascular Disease,心血管疾病相关,6,6,1e-07
