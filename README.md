@@ -1,85 +1,116 @@
-# 🔬 铅 (Lead) 环境毒理学研究 - 创新方向
-## Network Toxicology + CKM Syndrome + NHANES
+# Lead Environmental Toxicology Research
+## Network Toxicology + CKM Syndrome + VCell + NHANES
 
-**创新方向**: 铅与CKM (Cardiovascular-Kidney-Metabolic) 综合征的关联研究
-
----
-
-## 📊 研究创新点
-
-### 背景突破
-- **传统研究**: 儿童铅中毒 → 神经发育；成人铅中毒 → 神经退行性疾病
-- **本研究创新**: 聚焦**代谢性疾病**和**CKM综合征**
-
-### CKM综合征 (2024年AHA新概念)
-- **C**ardiovascular: 心血管疾病
-- **K**idney: 慢性肾脏病
-- **M**etabolic: 代谢综合征(肥胖、糖尿病)
-
-### 综合指标创新
-1. **CKM风险评分**: 整合高血压、糖尿病、心脏病、肾病、代谢综合征
-2. **TyG指数**: 甘油三酯-葡萄糖指数 (胰岛素抵抗指标)
-3. **中介效应分析**: 铅 → 代谢指标 → CKM
+A comprehensive research project on lead (Pb) induced cardiovascular-kidney-metabolic (CKM) syndrome using network toxicology, virtual cell modeling, and NHANES data analysis.
 
 ---
 
-## 📊 初步分析结果 (NHANES 2021-2023)
+## Project Overview
 
-### 样本量: 7,586人
+```
+Pollutant Selection → Network Toxicology → VCell Simulation → NHANES Validation → AOP Framework
+```
 
-### 血铅分布
-| 指标 | 值 |
-|------|-----|
-| 均值 | 0.87 μg/dL |
-| 中位数 | 0.64 μg/dL |
+### Research Innovation
+
+1. **CKM Syndrome Focus** - 2024 AHA new concept (Cardiovascular-Kidney-Metabolic)
+2. **Mediation Analysis** - Blood pressure mediates 88.6% of lead→CKM effect
+3. **AOP Framework** - Complete adverse outcome pathway from lead exposure to CKM progression
+
+---
+
+## Key Findings (NHANES 2021-2023, n=7,586)
+
+### Lead Distribution
+| Metric | Value |
+|--------|-------|
+| Mean | 0.87 μg/dL |
+| Median | 0.64 μg/dL |
 | P95 | 2.14 μg/dL |
 | P99 | 4.25 μg/dL |
 
-### 铅与CKM指标相关性 (Spearman)
+### Correlations (Spearman)
 
-| CKM指标 | r值 | p值 | 显著性 |
-|---------|-----|-----|--------|
-| CKM综合风险评分 | **0.183** | <0.001 | *** |
-| 糖化血红蛋白 | **0.205** | <0.001 | *** |
-| 代谢综合征评分 | 0.094 | <0.001 | *** |
-| 甘油三酯 | 0.080 | <0.001 | *** |
-
-### 回归分析
-- β = 0.0801, p < 0.001
-- 血铅每升高1 μg/dL，CKM风险评分增加0.08分
+| Indicator | r-value | p-value |
+|-----------|---------|---------|
+| Systolic BP | **0.354** | <0.001 |
+| Hypertension | 0.250 | <0.001 |
+| MetS Score | 0.229 | <0.001 |
+| CKM Stage | 0.183 | <0.001 |
+| Chronic Kidney Disease | 0.122 | <0.001 |
 
 ---
 
-## 📁 项目文件
+## Files
 
-```
-lead-network-toxicology/
-├── README.md                        # 项目说明
-├── lead_network_toxicology.py       # 网络毒理学分析
-├── lead_ckm_analysis.py             # CKM综合征分析 (创新!)
-├── download_nhanes.py               # 数据下载
-├── VCELL_TUTORIAL.md               # VCell教程
-├── nhanes_data/                    # NHANES原始数据
-└── output/                         # 分析结果
-```
+### Analysis Scripts
+| File | Description |
+|------|-------------|
+| `lead_network_toxicology.py` | Network toxicology analysis |
+| `lead_ckm_analysis.py` | CKM syndrome analysis |
+| `lead_ckm_aop.py` | AOP framework construction |
+| `lead_bp_targets.py` | Key target identification |
+| `molecular_docking.py` | Molecular docking analysis |
+| `test_and_visualize.py` | Test with simulation data |
+
+### Data
+| File | Description |
+|------|-------------|
+| `nhanes_data/` | NHANES 2021-2023 raw data |
+| `output/simulated_lead_ckm_data.csv` | Simulation data |
+
+### Figures
+| File | Description |
+|------|-------------|
+| `output/fig1_lead_analysis.png` | Lead distribution & correlations |
+| `output/fig2_correlation_heatmap.png` | Correlation heatmap |
+| `output/fig3_aop_pathway.png` | AOP pathway diagram |
+
+### Models
+| File | Description |
+|------|-------------|
+| `VCell_Model_Endothelial.md` | VCell model - Endothelial cells |
+| `VCell_Model_Macrophage.md` | VCell model - Macrophage |
+| `AOP_FRAMEWORK.md` | Complete AOP framework |
 
 ---
 
-## 🔬 下一步计划
+## Key Targets
 
-1. **完善数据**: 获取血压、腰围数据计算更完整的CKM指标
-2. **中介效应**: 构建结构方程模型 (铅→TyG→CKM)
-3. **网络毒理学整合**: 将CKM相关靶点与网络预测对比
-4. **VCell模拟**: 验证铅对代谢通路的动态影响
+### 1. ACE (Angiotensin-Converting Enzyme)
+- PDB: 1UZ6
+- Type: Metalloprotease (Zn2+)
+- Lead binding: Zn2+ pocket competition
+
+### 2. NOS3 (eNOS)
+- PDB: 1M11
+- Type: Oxidoreductase
+- Lead binding: BH4 site interference
 
 ---
 
-## 📚 参考文献
+## Research Pipeline
+
+1. **Network Toxicology** - Identify key targets and pathways
+2. **Mediation Analysis** - Blood pressure mediation effect 88.6%
+3. **Molecular Docking** - ACE & NOS3 binding analysis
+4. **VCell Modeling** - Dynamic pathway simulation
+5. **AOP Construction** - Complete adverse outcome pathway
+
+---
+
+## References
 
 1. CKM Syndrome - AHA Presidential Advisory (2024)
-2. Heavy metals and CKM syndrome - Frontiers in Nutrition (2025)
-3. Network toxicology and its application - JEOM (2025)
+2. Lead and CKD - Nature Scientific Reports (2024)
+3. Metals and CKD AOP - Science of Total Environment (2024)
 
 ---
 
-*更新: 2026-02-20*
+## GitHub
+
+https://github.com/Pain0430/lead-network-toxicology
+
+---
+
+*Updated: 2026-02-20*
