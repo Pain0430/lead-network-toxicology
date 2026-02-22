@@ -55,8 +55,9 @@ Pollutant Selection → Network Toxicology → VCell Simulation → NHANES Valid
 | `pfas_analysis.py` | PFAS network toxicology analysis |
 | `statistical_tests.py` | Statistical analysis with multiple testing correction |
 | `interactive_visualization.py` | Interactive Plotly visualizations |
-| `mediation_analysis.py` | **NEW** Baron-Kenny + Bootstrap mediation (Lead→BP→CKM) |
-| `ml_risk_prediction.py` | **NEW** ML risk prediction (Logistic/RF/GBM) |
+| `mediation_analysis.py` | Baron-Kenny + Bootstrap mediation (Lead→BP→CKM) |
+| `ml_risk_prediction.py` | ML risk prediction (Logistic/RF/GBM) |
+| `gsea_analysis.py` | **NEW** Gene Set Enrichment Analysis (GSEA) for lead neurotoxicity pathways |
 | `test_and_visualize.py` | Test with simulation data |
 
 ### Data
@@ -98,7 +99,8 @@ Pollutant Selection → Network Toxicology → VCell Simulation → NHANES Valid
 ## Research Pipeline
 
 1. **Network Toxicology** - Identify key targets and pathways
-2. **Mediation Analysis** - Baron-Kenny 4-step + Bootstrap CI (Lead→BP→CKM)
+2. **GSEA Analysis** - Gene Set Enrichment Analysis for pathway identification
+3. **Mediation Analysis** - Baron-Kenny 4-step + Bootstrap CI (Lead→BP→CKM)
 3. **Molecular Docking** - ACE & NOS3 binding analysis
 4. **VCell Modeling** - Dynamic pathway simulation
 5. **AOP Construction** - Complete adverse outcome pathway
@@ -122,4 +124,4 @@ https://github.com/Pain0430/lead-network-toxicology
 
 ---
 
-*Updated: 2026-02-20*
+*Updated: 2026-02-23*
