@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Multi-Mediator Comparison</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 30px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        h1 { color: #2c3e50; border-bottom: 3px solid #8e44ad; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        th { background: #34495e; color: white; padding: 12px; text-align: left; }
+        td { padding: 12px; border-bottom: 1px solid #eee; }
+        tr:hover { background: #f5f6fa; }
+        .note { color: #666; font-size: 0.85em; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔬 多中介变量对比 Multi-Mediator Comparison</h1>
+        <p>暴露变量: Blood Lead (Pb) → 结果变量: CKM Stage</p>
+        <table>
+            <tr>
+                <th>中介变量 Mediator</th>
+                <th>间接效应 a×b</th>
+                <th>95% Bootstrap CI</th>
+                <th>中介比例</th>
+                <th>Sobel p</th>
+                <th>显著</th>
+                <th>类型</th>
+            </tr>
+            
+        <tr>
+            <td>Systolic BP (mmHg)</td>
+            <td>0.0797</td>
+            <td>[0.0613, 0.0984]</td>
+            <td>49.2%</td>
+            <td>0.00e+00</td>
+            <td><span style="color:#27ae60;font-weight:bold">✅</span></td>
+            <td>部分中介</td>
+        </tr>
+        <tr>
+            <td>Diastolic BP (mmHg)</td>
+            <td>0.0516</td>
+            <td>[0.0363, 0.0670]</td>
+            <td>31.8%</td>
+            <td>3.33e-11</td>
+            <td><span style="color:#27ae60;font-weight:bold">✅</span></td>
+            <td>部分中介</td>
+        </tr>
+        <tr>
+            <td>HbA1c (%)</td>
+            <td>0.0003</td>
+            <td>[-0.0077, 0.0082]</td>
+            <td>0.2%</td>
+            <td>9.41e-01</td>
+            <td><span style="color:#e74c3c">❌</span></td>
+            <td>无中介效应</td>
+        </tr>
+        <tr>
+            <td>BMI (kg/m²)</td>
+            <td>0.0137</td>
+            <td>[-0.0010, 0.0298]</td>
+            <td>8.4%</td>
+            <td>7.72e-02</td>
+            <td><span style="color:#e74c3c">❌</span></td>
+            <td>无中介效应</td>
+        </tr>
+        <tr>
+            <td>eGFR (mL/min/1.73m²)</td>
+            <td>-0.0026</td>
+            <td>[-0.0076, 0.0019]</td>
+            <td>1.6%</td>
+            <td>2.77e-01</td>
+            <td><span style="color:#e74c3c">❌</span></td>
+            <td>无中介效应</td>
+        </tr>
+        </table>
+        <p class="note">
+            * Bootstrap n=2000 | 显著: 95% CI不含0<br>
+            * 中介比例 = 间接效应/总效应 × 100%
+        </p>
+    </div>
+</body>
+</html>

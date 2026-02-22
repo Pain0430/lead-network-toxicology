@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ML Risk Prediction Report</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            background: #f0f2f5; 
+            margin: 0; padding: 30px; 
+            color: #2c3e50;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        h1 { 
+            color: #2c3e50; 
+            border-bottom: 3px solid #e74c3c; 
+            padding-bottom: 15px;
+        }
+        h2 { color: #34495e; margin-top: 30px; }
+        
+        .summary-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+        .summary-card {
+            background: white; border-radius: 10px; padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center;
+        }
+        .summary-card .value { font-size: 2em; font-weight: bold; color: #2c3e50; }
+        .summary-card .label { color: #7f8c8d; font-size: 0.85em; margin-top: 5px; }
+        
+        table { 
+            width: 100%; border-collapse: collapse; background: white; 
+            border-radius: 8px; overflow: hidden; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
+            margin: 15px 0;
+        }
+        th { background: #34495e; color: white; padding: 12px; text-align: left; }
+        td { padding: 12px; border-bottom: 1px solid #eee; }
+        tr:hover { background: #f9f9f9; }
+        
+        .best-badge {
+            display: inline-block; background: #27ae60; color: white;
+            padding: 3px 10px; border-radius: 12px; font-size: 0.8em;
+        }
+        
+        .confusion-matrix {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 2px; max-width: 350px; margin: 20px auto;
+        }
+        .cm-cell {
+            padding: 20px; text-align: center; font-size: 1.3em; font-weight: bold;
+            border-radius: 6px;
+        }
+        .cm-tp { background: #27ae6030; color: #27ae60; }
+        .cm-tn { background: #3498db30; color: #3498db; }
+        .cm-fp { background: #e74c3c30; color: #e74c3c; }
+        .cm-fn { background: #f39c1230; color: #e67e22; }
+        
+        .section {
+            background: white; border-radius: 10px; padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin: 20px 0;
+        }
+        
+        .footer { text-align: center; color: #95a5a6; font-size: 0.85em; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 机器学习CKM风险预测 ML Risk Prediction</h1>
+        
+        <div class="summary-cards">
+            <div class="summary-card">
+                <div class="value">3</div>
+                <div class="label">Models Compared</div>
+            </div>
+            <div class="summary-card">
+                <div class="value">0.868</div>
+                <div class="label">Best AUC (Logistic Regression)</div>
+            </div>
+            <div class="summary-card">
+                <div class="value">14</div>
+                <div class="label">Features Used</div>
+            </div>
+            <div class="summary-card">
+                <div class="value">5-Fold</div>
+                <div class="label">Cross Validation</div>
+            </div>
+        </div>
+        
+        <h2>📊 Model Performance Comparison</h2>
+        <table>
+            <tr>
+                <th>Model</th>
+                <th>Accuracy</th>
+                <th>AUC</th>
+                <th>Precision</th>
+                <th>Recall</th>
+                <th>F1</th>
+                <th>Specificity</th>
+            </tr>
+            
+        <tr>
+            <td><b>Logistic Regression</b></td>
+            <td>0.809 ± 0.022</td>
+            <td>0.868 ± 0.023</td>
+            <td>0.731 ± 0.064</td>
+            <td>0.593 ± 0.021</td>
+            <td>0.653 ± 0.026</td>
+            <td>0.903 ± 0.029</td>
+        </tr>
+        <tr>
+            <td><b>Random Forest</b></td>
+            <td>0.793 ± 0.017</td>
+            <td>0.847 ± 0.022</td>
+            <td>0.728 ± 0.042</td>
+            <td>0.512 ± 0.040</td>
+            <td>0.599 ± 0.029</td>
+            <td>0.916 ± 0.017</td>
+        </tr>
+        <tr>
+            <td><b>Gradient Boosting</b></td>
+            <td>0.767 ± 0.016</td>
+            <td>0.792 ± 0.021</td>
+            <td>0.710 ± 0.051</td>
+            <td>0.409 ± 0.108</td>
+            <td>0.505 ± 0.093</td>
+            <td>0.922 ± 0.030</td>
+        </tr>
+        </table>
+        <p><span class="best-badge">BEST</span> Logistic Regression (highest AUC)</p>
+        
+        <h2>🎯 Feature Importance (Logistic Regression)</h2>
+        <div class="section">
+            <table>
+                <tr><th>#</th><th>Feature</th><th>Importance (Permutation)</th></tr>
+                
+        <tr>
+            <td>4</td>
+            <td>Age (years)</td>
+            <td>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <div style="background:linear-gradient(90deg, #3498db, #2ecc71); 
+                                width:100.0%; height:20px; border-radius:4px;
+                                min-width:2px;"></div>
+                    <span>0.7537</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>log(Blood Lead)</td>
+            <td>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <div style="background:linear-gradient(90deg, #3498db, #2ecc71); 
+                                width:74.86752233669152%; height:20px; border-radius:4px;
+                                min-width:2px;"></div>
+                    <span>0.5643</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>BMI (kg/m²)</td>
+            <td>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <div style="background:linear-gradient(90deg, #3498db, #2ecc71); 
+                                width:60.32948906755713%; height:20px; border-radius:4px;
+                                min-width:2px;"></div>
+                    <span>0.4547</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Smoking Status</td>
+            <td>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <div style="background:linear-gradient(90deg, #3498db, #2ecc71); 
+                                width:53.6453000243031%; height:20px; border-radius:4px;
+                                min-width:2px;"></div>
+                    <span>0.4043</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Systolic BP</td>
+            <td>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <div style="background:linear-gradient(90deg, #3498db, #2ecc71); 
+                                width:52.98675825843663%; height:20px; border-radius:4px;
+                                min-width:2px;"></div>
+                    <span>0.3994</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>HbA1c (%)</td>
+            <td>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <div style="background:linear-gradient(90deg, #3498db, #2ecc71); 
+                                width:41.49501434674739%; height:20px; border-radius:4px;
+                                min-width:2px;"></div>
+                    <span>0.3128</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Blood Cadmium</td>
+            <td>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <div style="background:linear-gradient(90deg, #3498db, #2ecc71); 
+                                width:28.993519539217377%; height:20px; border-radius:4px;
+                                min-width:2px;"></div>
+                    <span>0.2185</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Sex (Male=1)</td>
+            <td>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <div style="background:linear-gradient(90deg, #3498db, #2ecc71); 
+                                width:23.27516824659138%; height:20px; border-radius:4px;
+                                min-width:2px;"></div>
+                    <span>0.1754</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>eGFR</td>
+            <td>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <div style="background:linear-gradient(90deg, #3498db, #2ecc71); 
+                                width:22.881273583052355%; height:20px; border-radius:4px;
+                                min-width:2px;"></div>
+                    <span>0.1725</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Blood Mercury</td>
+            <td>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <div style="background:linear-gradient(90deg, #3498db, #2ecc71); 
+                                width:15.502727386666823%; height:20px; border-radius:4px;
+                                min-width:2px;"></div>
+                    <span>0.1168</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>Creatinine</td>
+            <td>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <div style="background:linear-gradient(90deg, #3498db, #2ecc71); 
+                                width:4.900777380640065%; height:20px; border-radius:4px;
+                                min-width:2px;"></div>
+                    <span>0.0369</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Diastolic BP</td>
+            <td>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <div style="background:linear-gradient(90deg, #3498db, #2ecc71); 
+                                width:1.392795344414394%; height:20px; border-radius:4px;
+                                min-width:2px;"></div>
+                    <span>0.0105</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Triglycerides</td>
+            <td>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <div style="background:linear-gradient(90deg, #3498db, #2ecc71); 
+                                width:0.6479659622067181%; height:20px; border-radius:4px;
+                                min-width:2px;"></div>
+                    <span>0.0049</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>HDL Cholesterol</td>
+            <td>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <div style="background:linear-gradient(90deg, #3498db, #2ecc71); 
+                                width:0.018772887378159915%; height:20px; border-radius:4px;
+                                min-width:2px;"></div>
+                    <span>0.0001</span>
+                </div>
+            </td>
+        </tr>
+            </table>
+        </div>
+        
+        <h2>📋 Confusion Matrix (Logistic Regression - Test Set)</h2>
+        <div class="section" style="text-align:center">
+            <div style="display:grid; grid-template-columns:80px 1fr 1fr; max-width:400px; margin:0 auto; gap:4px;">
+                <div></div>
+                <div style="font-weight:bold; padding:10px;">Predicted 0</div>
+                <div style="font-weight:bold; padding:10px;">Predicted 1</div>
+                
+                <div style="font-weight:bold; padding:10px; writing-mode:vertical-rl;">Actual 0</div>
+                <div class="cm-cell cm-tn">TN<br>380</div>
+                <div class="cm-cell cm-fp">FP<br>47</div>
+                
+                <div style="font-weight:bold; padding:10px; writing-mode:vertical-rl;">Actual 1</div>
+                <div class="cm-cell cm-fn">FN<br>75</div>
+                <div class="cm-cell cm-tp">TP<br>98</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>💡 Key Findings</h3>
+            <ul>
+                <li><b>Best model:</b> Logistic Regression with AUC = 0.868</li>
+                <li><b>Top predictor:</b> Age (years) (importance = 0.7537)</li>
+                <li><b>Heavy metal contribution:</b> Blood lead level is a significant predictor of CKM risk, supporting the epidemiological evidence</li>
+                <li><b>Clinical implication:</b> Integrating metal biomarkers with traditional risk factors improves CKM risk stratification</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>Generated by ML Risk Prediction Module | Lead Network Toxicology Project</p>
+        </div>
+    </div>
+</body>
+</html>

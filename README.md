@@ -51,6 +51,12 @@ Pollutant Selection → Network Toxicology → VCell Simulation → NHANES Valid
 | `lead_ckm_aop.py` | AOP framework construction |
 | `lead_bp_targets.py` | Key target identification |
 | `molecular_docking.py` | Molecular docking analysis |
+| `multi_metal_analysis.py` | Multi-metal (Pb/As/Cd/Hg/Mn) comparative analysis |
+| `pfas_analysis.py` | PFAS network toxicology analysis |
+| `statistical_tests.py` | Statistical analysis with multiple testing correction |
+| `interactive_visualization.py` | Interactive Plotly visualizations |
+| `mediation_analysis.py` | **NEW** Baron-Kenny + Bootstrap mediation (Lead→BP→CKM) |
+| `ml_risk_prediction.py` | **NEW** ML risk prediction (Logistic/RF/GBM) |
 | `test_and_visualize.py` | Test with simulation data |
 
 ### Data
@@ -92,10 +98,13 @@ Pollutant Selection → Network Toxicology → VCell Simulation → NHANES Valid
 ## Research Pipeline
 
 1. **Network Toxicology** - Identify key targets and pathways
-2. **Mediation Analysis** - Blood pressure mediation effect 88.6%
+2. **Mediation Analysis** - Baron-Kenny 4-step + Bootstrap CI (Lead→BP→CKM)
 3. **Molecular Docking** - ACE & NOS3 binding analysis
 4. **VCell Modeling** - Dynamic pathway simulation
 5. **AOP Construction** - Complete adverse outcome pathway
+6. **ML Risk Prediction** - Logistic Regression, Random Forest, Gradient Boosting
+7. **Multi-Metal Comparison** - Cross-metal gene overlap & pathway enrichment
+8. **PFAS Analysis** - Emerging pollutant network toxicology
 
 ---
 
