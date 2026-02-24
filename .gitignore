@@ -1,0 +1,30 @@
+# 忽略输出文件
+output/
+*.png
+*.pdf
+*.html
+*.csv
+*.joblib
+
+# 忽略数据
+data/
+*.csv
+*.xlsx
+*.xls
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
