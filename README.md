@@ -1,116 +1,84 @@
-# Lead Network Toxicology - Visualization Enhancement
+# Lead Network Toxicology - 铅网络毒理学分析
 
-## 项目简介
+## 项目概述
 
-铅网络毒理学可视化增强模块，提供高质量的ROC曲线、PR曲线、决策曲线分析(DCA)、校准曲线等可视化功能。
+本项目采用网络毒理学方法，系统分析铅暴露与心血管-肾脏-代谢(CKM)综合征之间的分子关联。
 
-## 作者
+## 分析模块
 
-- **Pain** (重庆医科大学 公共卫生学院 副教授)
+### 1. 剂量-反应分析 (`dose_response_analysis.py`)
+- 血铅剂量-反应曲线
+- 阈值效应分析
+- 限制性立方样条建模
 
-## 功能特性
+### 2. 发表偏倚分析 (`publication_bias_analysis.py`)
+- 漏斗图
+- Egger's检验
+- Trim-and-fill分析
 
-### 静态可视化 (Matplotlib/Seaborn)
-- ✅ 增强版ROC曲线（带最优点标注）
-- ✅ 增强版PR曲线
-- ✅ 决策曲线分析 (DCA)
-- ✅ 校准曲线
-- ✅ 混淆矩阵热力图
-- ✅ 特征重要性对比图
-- ✅ 模型性能雷达图
-- ✅ 风险分层图
+### 3. 生物标志物网络分析 (`biomarker_network_analysis.py`)
+- 相关性网络构建
+- 社区检测算法
+- 中心性分析
 
-### 交互式可视化 (Plotly)
-- ✅ 交互式ROC曲线
-- ✅ 交互式PR曲线
-- ✅ 交互式决策曲线
-- ✅ 交互式特征重要性
-- ✅ 交互式风险热力图
-- ✅ 交互式校准曲线
+### 4. 通路富集分析 (`pathway_enrichment_analysis.py`)
+- KEGG通路富集
+- 通路相互作用网络
+- 毒性机制热力图
 
-## 依赖
+### 5. 中介效应分析 (`mediation_analysis.py`)
+- Baron-Kenny方法
+- Bootstrap置信区间
+- 多中介效应比较
 
-```
-numpy
-pandas
-matplotlib
-seaborn
-scikit-learn
-plotly
-kaleido
-```
+### 6. 可视化增强 (`enhanced_visualization.py`)
+- 增强版ROC/PR曲线
+- 决策曲线分析(DCA)
+- 校准曲线
 
-## 安装
+### 7. 交互式可视化
+- 交互式森林图
+- 交互式列线图
+- 交互式网络图
 
-```bash
-pip install -r requirements.txt
-```
+## 生成文件
+
+### 核心分析结果
+- `output/comprehensive_report.txt` - 综合分析报告
+- `output/dose_response_report.txt` - 剂量-反应分析报告
+- `output/publication_bias_report.txt` - 发表偏倚分析报告
+- `output/network_analysis_report.txt` - 网络分析报告
+- `output/pathway_analysis_report.txt` - 通路分析报告
+- `output/mediation_report.txt` - 中介效应报告
+
+### 可视化图表
+详见 `output/` 目录
 
 ## 使用方法
 
-### 静态可视化
 ```bash
+# 运行所有分析
 python enhanced_visualization.py
+python dose_response_analysis.py
+python publication_bias_analysis.py
+python biomarker_network_analysis.py
+python pathway_enrichment_analysis.py
+python mediation_analysis.py
+
+# 生成综合报告
+python generate_report.py
 ```
 
-### 交互式可视化
-```bash
-python interactive_visualization.py
-```
+## 主要发现
 
-## 输出文件
+1. **血铅阈值**: 6.4 μg/dL 是CKM综合征的临界点
+2. **核心风险因素**: 职业暴露(OR=2.57), 血铅(OR=2.17)
+3. **关键通路**: 氧化应激 > NF-κB炎症 > 肠-肝轴
+4. **预测性能**: AUC = 0.944
 
-### 静态图表 (output/)
-- `enhanced_roc_curves.png/pdf` - ROC曲线
-- `enhanced_pr_curves.png/pdf` - PR曲线
-- `decision_curve_analysis.png/pdf` - DCA曲线
-- `calibration_curves.png/pdf` - 校准曲线
-- `confusion_matrices.png` - 混淆矩阵
-- `feature_importance_comparison.png` - 特征重要性
-- `model_performance_radar.png` - 性能雷达图
-- `risk_stratification.png` - 风险分层
+## 作者
 
-### 交互式图表 (output/)
-- `interactive_roc.html` - 交互式ROC
-- `interactive_pr.html` - 交互式PR
-- `interactive_dca.html` - 交互式DCA
-- `interactive_feature_importance.html` - 交互式特征重要性
-- `interactive_risk_heatmap.html` - 交互式风险热力图
-- `interactive_calibration.html` - 交互式校准曲线
-
-## 数据说明
-
-- 样本量: 2000
-- 特征数: 28
-- 目标: 铅毒性风险预测 (二分类)
-- 特征类别:
-  - 人口学: Age, Sex, BMI
-  - 铅暴露: Blood_Lead, Urine_Lead, Hair_Lead
-  - 氧化应激: SOD, GSH, MDA, 8-OHdG
-  - 炎症: CRP, IL6, TNF-α
-  - 肝肾功能: ALT, AST, Creatinine, BUN
-  - 心血管: BP, HbA1c, Cholesterol
-  - 胆汁酸: DCA, LCA, CA, UDCA
-  - 肠道屏障: Calprotectin, Zonulin, LBP
-
-## 模型性能
-
-| 模型 | ROC-AUC | PR-AUC | F1 | Brier Score |
-|------|---------|--------|-----|-------------|
-| Logistic Regression | 0.944 | 0.032 | 0.069 | 0.045 |
-| Random Forest | 0.911 | 0.023 | 0.000 | 0.004 |
-| Gradient Boosting | 0.504 | 0.021 | 0.000 | 0.006 |
-
-## 关键发现
-
-1. **血铅水平**是最重要的预测因子
-2. 氧化应激指标(MDA)与铅毒性密切相关
-3. 肠道屏障标志物(钙卫蛋白)对预测有重要贡献
-4. 模型在广泛阈值范围内具有正的净收益(决策曲线分析)
-
-## 许可证
-
-仅供研究使用
+**Pain** - 重庆医科大学 公共卫生学院 副教授
 
 ---
-更新日期: 2026-02-25
+*生成日期: 2026-02-27*
