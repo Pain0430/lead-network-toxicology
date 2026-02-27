@@ -1,0 +1,1306 @@
+{
+  "target_genes": {
+    "PFOA": {
+      "target_count": 71,
+      "targets": [
+        "PPARA",
+        "PPARG",
+        "PPARGC1A",
+        "CYP1A2",
+        "CYP2B6",
+        "CYP2C9",
+        "CYP3A4",
+        "FABP1",
+        "ALB",
+        "APOC3",
+        "LPL",
+        "PCSK9",
+        "LDLR",
+        "RARB",
+        "RARA",
+        "RXRA",
+        "ESR1",
+        "ESR2",
+        "GPER1",
+        "HNF4A",
+        "FOXA2",
+        "FOXA3",
+        "IL4",
+        "IL5",
+        "IL13",
+        "IFNG",
+        "TNF",
+        "NFKB1",
+        "NFKBIA",
+        "CD40",
+        "CD40LG",
+        "IGM",
+        "IGA",
+        "IGE",
+        "LEP",
+        "LEPR",
+        "ADIPOQ",
+        "ADIPOR1",
+        "ADIPOR2",
+        "SREBF1",
+        "SREBF2",
+        "FASN",
+        "ACACA",
+        "ACACB",
+        "GPX1",
+        "GPX2",
+        "SOD1",
+        "SOD2",
+        "CAT",
+        "NQO1",
+        "NRF2",
+        "KEAP1",
+        "TP53",
+        "CDKN1A",
+        "MDM2",
+        "BCL2",
+        "BAX",
+        "CASP3",
+        "CCND1",
+        "TSHR",
+        "TPO",
+        "TG",
+        "TTR",
+        "THRA",
+        "THRB",
+        "UGT1A1",
+        "SULT1A1",
+        "NAT2",
+        "ABCB1",
+        "ABCC1",
+        "ABCC2"
+      ]
+    },
+    "PFOS": {
+      "target_count": 70,
+      "targets": [
+        "PPARA",
+        "PPARG",
+        "PPARGC1A",
+        "CYP1A1",
+        "CYP2B6",
+        "CYP2C8",
+        "CYP3A5",
+        "FABP1",
+        "ALB",
+        "APOC2",
+        "LIPC",
+        "CETP",
+        "RARB",
+        "RARA",
+        "RXRA",
+        "ESR1",
+        "ESR2",
+        "WNT5A",
+        "WNT3A",
+        "BMP4",
+        "FGF8",
+        "BDNF",
+        "SNAP25",
+        "SYN1",
+        "DLG4",
+        "GRIN1",
+        "GRIN2B",
+        "MAPK1",
+        "MAPK3",
+        "MAPK8",
+        "CREB1",
+        "IL2",
+        "IL4",
+        "IL6",
+        "IL10",
+        "IFNG",
+        "TNF",
+        "NFKB1",
+        "CD4",
+        "CD8A",
+        "GATA3",
+        "TBX21",
+        "LEP",
+        "ADIPOQ",
+        "ADIPOR1",
+        "SREBF1",
+        "FASN",
+        "GPX1",
+        "GPX3",
+        "GPX4",
+        "SOD1",
+        "CAT",
+        "NQO1",
+        "NRF2",
+        "TSHR",
+        "TTR",
+        "THRA",
+        "THRB",
+        "DIO1",
+        "DIO2",
+        "KIM1",
+        "HAVCR1",
+        "LCN2",
+        "NGAL",
+        "NPHS1",
+        "NPHS2",
+        "UGT1A3",
+        "SULT1E1",
+        "ABCB11",
+        "SLCO1B1"
+      ]
+    },
+    "PFNA": {
+      "target_count": 28,
+      "targets": [
+        "PPARA",
+        "PPARG",
+        "CYP2B6",
+        "CYP2C9",
+        "CYP3A4",
+        "FABP1",
+        "ALB",
+        "APOC3",
+        "LPL",
+        "ESR1",
+        "ESR2",
+        "RARA",
+        "RXRA",
+        "LEP",
+        "ADIPOQ",
+        "SREBF1",
+        "FASN",
+        "GPX1",
+        "SOD1",
+        "CAT",
+        "NRF2",
+        "IL6",
+        "TNF",
+        "NFKB1",
+        "TSHR",
+        "TTR",
+        "UGT1A1",
+        "ABCB1"
+      ]
+    },
+    "GenX": {
+      "target_count": 26,
+      "targets": [
+        "PPARA",
+        "PPARG",
+        "PPARGC1A",
+        "CYP2B6",
+        "CYP3A4",
+        "FABP1",
+        "ALB",
+        "LPL",
+        "RARA",
+        "RXRA",
+        "ESR1",
+        "LEP",
+        "ADIPOQ",
+        "SREBF1",
+        "GPX1",
+        "SOD1",
+        "CAT",
+        "NRF2",
+        "IL6",
+        "TNF",
+        "NFKB1",
+        "TP53",
+        "CDKN1A",
+        "BCL2",
+        "UGT1A1",
+        "ABCB1"
+      ]
+    }
+  },
+  "similarity_matrix": {
+    "PFOA": {
+      "PFOA": 1.0,
+      "PFOS": 0.25892857142857145,
+      "PFNA": 0.375,
+      "GenX": 0.3472222222222222
+    },
+    "PFOS": {
+      "PFOA": 0.25892857142857145,
+      "PFOS": 1.0,
+      "PFNA": 0.2894736842105263,
+      "GenX": 0.24675324675324675
+    },
+    "PFNA": {
+      "PFOA": 0.375,
+      "PFOS": 0.2894736842105263,
+      "PFNA": 1.0,
+      "GenX": 0.6875
+    },
+    "GenX": {
+      "PFOA": 0.3472222222222222,
+      "PFOS": 0.24675324675324675,
+      "PFNA": 0.6875,
+      "GenX": 1.0
+    }
+  },
+  "pathway_enrichment": {
+    "PFOA": {
+      "PPAR Signaling": {
+        "overlap_count": 5,
+        "pathway_genes": 5,
+        "enrichment": 1.0,
+        "genes": [
+          "RXRA",
+          "FABP1",
+          "PPARA",
+          "PPARGC1A",
+          "PPARG"
+        ]
+      },
+      "AHR Signaling": {
+        "overlap_count": 1,
+        "pathway_genes": 4,
+        "enrichment": 0.25,
+        "genes": [
+          "CYP1A2"
+        ]
+      },
+      "Cytokine Signaling": {
+        "overlap_count": 6,
+        "pathway_genes": 9,
+        "enrichment": 0.6666666666666666,
+        "genes": [
+          "IL4",
+          "NFKB1",
+          "IL5",
+          "IL13",
+          "TNF",
+          "IFNG"
+        ]
+      },
+      "Oxidative Stress": {
+        "overlap_count": 8,
+        "pathway_genes": 10,
+        "enrichment": 0.8,
+        "genes": [
+          "NQO1",
+          "SOD2",
+          "SOD1",
+          "NRF2",
+          "CAT",
+          "GPX1",
+          "GPX2",
+          "KEAP1"
+        ]
+      },
+      "Metabolism": {
+        "overlap_count": 7,
+        "pathway_genes": 8,
+        "enrichment": 0.875,
+        "genes": [
+          "LDLR",
+          "ACACA",
+          "SREBF1",
+          "SREBF2",
+          "PCSK9",
+          "FASN",
+          "LPL"
+        ]
+      },
+      "Retinoid Signaling": {
+        "overlap_count": 3,
+        "pathway_genes": 5,
+        "enrichment": 0.6,
+        "genes": [
+          "RARB",
+          "RXRA",
+          "RARA"
+        ]
+      },
+      "Estrogen Signaling": {
+        "overlap_count": 3,
+        "pathway_genes": 4,
+        "enrichment": 0.75,
+        "genes": [
+          "ESR1",
+          "GPER1",
+          "ESR2"
+        ]
+      },
+      "Thyroid Hormone": {
+        "overlap_count": 5,
+        "pathway_genes": 7,
+        "enrichment": 0.7142857142857143,
+        "genes": [
+          "THRA",
+          "TTR",
+          "THRB",
+          "TSHR",
+          "TPO"
+        ]
+      },
+      "Apoptosis": {
+        "overlap_count": 6,
+        "pathway_genes": 6,
+        "enrichment": 1.0,
+        "genes": [
+          "MDM2",
+          "TP53",
+          "BAX",
+          "CDKN1A",
+          "CASP3",
+          "BCL2"
+        ]
+      }
+    },
+    "PFOS": {
+      "PPAR Signaling": {
+        "overlap_count": 5,
+        "pathway_genes": 5,
+        "enrichment": 1.0,
+        "genes": [
+          "RXRA",
+          "FABP1",
+          "PPARA",
+          "PPARGC1A",
+          "PPARG"
+        ]
+      },
+      "AHR Signaling": {
+        "overlap_count": 1,
+        "pathway_genes": 4,
+        "enrichment": 0.25,
+        "genes": [
+          "CYP1A1"
+        ]
+      },
+      "Cytokine Signaling": {
+        "overlap_count": 7,
+        "pathway_genes": 9,
+        "enrichment": 0.7777777777777778,
+        "genes": [
+          "IL2",
+          "IL4",
+          "NFKB1",
+          "IL6",
+          "IL10",
+          "TNF",
+          "IFNG"
+        ]
+      },
+      "Oxidative Stress": {
+        "overlap_count": 7,
+        "pathway_genes": 10,
+        "enrichment": 0.7,
+        "genes": [
+          "NQO1",
+          "GPX4",
+          "SOD1",
+          "NRF2",
+          "GPX3",
+          "CAT",
+          "GPX1"
+        ]
+      },
+      "Metabolism": {
+        "overlap_count": 3,
+        "pathway_genes": 8,
+        "enrichment": 0.375,
+        "genes": [
+          "FASN",
+          "SREBF1",
+          "CETP"
+        ]
+      },
+      "Retinoid Signaling": {
+        "overlap_count": 3,
+        "pathway_genes": 5,
+        "enrichment": 0.6,
+        "genes": [
+          "RARB",
+          "RXRA",
+          "RARA"
+        ]
+      },
+      "Estrogen Signaling": {
+        "overlap_count": 3,
+        "pathway_genes": 4,
+        "enrichment": 0.75,
+        "genes": [
+          "ESR1",
+          "GATA3",
+          "ESR2"
+        ]
+      },
+      "Thyroid Hormone": {
+        "overlap_count": 6,
+        "pathway_genes": 7,
+        "enrichment": 0.8571428571428571,
+        "genes": [
+          "THRA",
+          "DIO1",
+          "TTR",
+          "THRB",
+          "DIO2",
+          "TSHR"
+        ]
+      },
+      "MAPK Signaling": {
+        "overlap_count": 4,
+        "pathway_genes": 5,
+        "enrichment": 0.8,
+        "genes": [
+          "MAPK3",
+          "CREB1",
+          "MAPK1",
+          "MAPK8"
+        ]
+      }
+    },
+    "PFNA": {
+      "PPAR Signaling": {
+        "overlap_count": 4,
+        "pathway_genes": 5,
+        "enrichment": 0.8,
+        "genes": [
+          "PPARA",
+          "RXRA",
+          "PPARG",
+          "FABP1"
+        ]
+      },
+      "Cytokine Signaling": {
+        "overlap_count": 3,
+        "pathway_genes": 9,
+        "enrichment": 0.3333333333333333,
+        "genes": [
+          "IL6",
+          "NFKB1",
+          "TNF"
+        ]
+      },
+      "Oxidative Stress": {
+        "overlap_count": 4,
+        "pathway_genes": 10,
+        "enrichment": 0.4,
+        "genes": [
+          "CAT",
+          "SOD1",
+          "NRF2",
+          "GPX1"
+        ]
+      },
+      "Metabolism": {
+        "overlap_count": 3,
+        "pathway_genes": 8,
+        "enrichment": 0.375,
+        "genes": [
+          "SREBF1",
+          "FASN",
+          "LPL"
+        ]
+      },
+      "Retinoid Signaling": {
+        "overlap_count": 2,
+        "pathway_genes": 5,
+        "enrichment": 0.4,
+        "genes": [
+          "RXRA",
+          "RARA"
+        ]
+      },
+      "Estrogen Signaling": {
+        "overlap_count": 2,
+        "pathway_genes": 4,
+        "enrichment": 0.5,
+        "genes": [
+          "ESR1",
+          "ESR2"
+        ]
+      },
+      "Thyroid Hormone": {
+        "overlap_count": 2,
+        "pathway_genes": 7,
+        "enrichment": 0.2857142857142857,
+        "genes": [
+          "TSHR",
+          "TTR"
+        ]
+      }
+    },
+    "GenX": {
+      "PPAR Signaling": {
+        "overlap_count": 5,
+        "pathway_genes": 5,
+        "enrichment": 1.0,
+        "genes": [
+          "RXRA",
+          "FABP1",
+          "PPARA",
+          "PPARGC1A",
+          "PPARG"
+        ]
+      },
+      "Cytokine Signaling": {
+        "overlap_count": 3,
+        "pathway_genes": 9,
+        "enrichment": 0.3333333333333333,
+        "genes": [
+          "IL6",
+          "NFKB1",
+          "TNF"
+        ]
+      },
+      "Oxidative Stress": {
+        "overlap_count": 4,
+        "pathway_genes": 10,
+        "enrichment": 0.4,
+        "genes": [
+          "CAT",
+          "SOD1",
+          "NRF2",
+          "GPX1"
+        ]
+      },
+      "Metabolism": {
+        "overlap_count": 2,
+        "pathway_genes": 8,
+        "enrichment": 0.25,
+        "genes": [
+          "SREBF1",
+          "LPL"
+        ]
+      },
+      "Retinoid Signaling": {
+        "overlap_count": 2,
+        "pathway_genes": 5,
+        "enrichment": 0.4,
+        "genes": [
+          "RXRA",
+          "RARA"
+        ]
+      },
+      "Estrogen Signaling": {
+        "overlap_count": 1,
+        "pathway_genes": 4,
+        "enrichment": 0.25,
+        "genes": [
+          "ESR1"
+        ]
+      },
+      "Apoptosis": {
+        "overlap_count": 3,
+        "pathway_genes": 6,
+        "enrichment": 0.5,
+        "genes": [
+          "BCL2",
+          "CDKN1A",
+          "TP53"
+        ]
+      }
+    }
+  },
+  "disease_association": {
+    "PFOA": {
+      "Liver Toxicity": {
+        "overlap_count": 7,
+        "total_genes": 7,
+        "genes": [
+          "FABP1",
+          "ALB",
+          "CYP2B6",
+          "PPARA",
+          "CYP3A4",
+          "PPARG",
+          "CYP1A2"
+        ]
+      },
+      "Developmental Toxicity": {
+        "overlap_count": 5,
+        "total_genes": 8,
+        "genes": [
+          "RARB",
+          "ESR1",
+          "RXRA",
+          "ESR2",
+          "RARA"
+        ]
+      },
+      "Immunotoxicity": {
+        "overlap_count": 5,
+        "total_genes": 8,
+        "genes": [
+          "IL4",
+          "NFKB1",
+          "TNF",
+          "IFNG",
+          "CD40"
+        ]
+      },
+      "Metabolic Disorder": {
+        "overlap_count": 7,
+        "total_genes": 7,
+        "genes": [
+          "LEPR",
+          "SREBF1",
+          "SREBF2",
+          "LEP",
+          "PPARA",
+          "ADIPOQ",
+          "FASN"
+        ]
+      },
+      "Thyroid Dysfunction": {
+        "overlap_count": 4,
+        "total_genes": 6,
+        "genes": [
+          "THRB",
+          "TSHR",
+          "THRA",
+          "TTR"
+        ]
+      },
+      "Cancer": {
+        "overlap_count": 6,
+        "total_genes": 6,
+        "genes": [
+          "TP53",
+          "BAX",
+          "CCND1",
+          "CDKN1A",
+          "CASP3",
+          "BCL2"
+        ]
+      },
+      "Cardiovascular": {
+        "overlap_count": 5,
+        "total_genes": 6,
+        "genes": [
+          "APOC3",
+          "LDLR",
+          "PCSK9",
+          "ADIPOQ",
+          "LPL"
+        ]
+      }
+    },
+    "PFOS": {
+      "Liver Toxicity": {
+        "overlap_count": 5,
+        "total_genes": 7,
+        "genes": [
+          "FABP1",
+          "ALB",
+          "CYP2B6",
+          "PPARA",
+          "PPARG"
+        ]
+      },
+      "Developmental Toxicity": {
+        "overlap_count": 8,
+        "total_genes": 8,
+        "genes": [
+          "RARB",
+          "ESR1",
+          "RXRA",
+          "BMP4",
+          "FGF8",
+          "ESR2",
+          "RARA",
+          "WNT5A"
+        ]
+      },
+      "Immunotoxicity": {
+        "overlap_count": 7,
+        "total_genes": 8,
+        "genes": [
+          "IL2",
+          "IL4",
+          "NFKB1",
+          "IL6",
+          "IL10",
+          "TNF",
+          "IFNG"
+        ]
+      },
+      "Metabolic Disorder": {
+        "overlap_count": 5,
+        "total_genes": 7,
+        "genes": [
+          "SREBF1",
+          "LEP",
+          "PPARA",
+          "ADIPOQ",
+          "FASN"
+        ]
+      },
+      "Neurotoxicity": {
+        "overlap_count": 7,
+        "total_genes": 7,
+        "genes": [
+          "MAPK3",
+          "GRIN2B",
+          "SNAP25",
+          "BDNF",
+          "SYN1",
+          "MAPK1",
+          "GRIN1"
+        ]
+      },
+      "Thyroid Dysfunction": {
+        "overlap_count": 6,
+        "total_genes": 6,
+        "genes": [
+          "THRA",
+          "DIO1",
+          "TTR",
+          "THRB",
+          "DIO2",
+          "TSHR"
+        ]
+      },
+      "Kidney Injury": {
+        "overlap_count": 6,
+        "total_genes": 6,
+        "genes": [
+          "NPHS1",
+          "NGAL",
+          "KIM1",
+          "NPHS2",
+          "LCN2",
+          "HAVCR1"
+        ]
+      },
+      "Cardiovascular": {
+        "overlap_count": 2,
+        "total_genes": 6,
+        "genes": [
+          "ADIPOQ",
+          "CETP"
+        ]
+      }
+    },
+    "PFNA": {
+      "Liver Toxicity": {
+        "overlap_count": 6,
+        "total_genes": 7,
+        "genes": [
+          "FABP1",
+          "ALB",
+          "CYP2B6",
+          "PPARA",
+          "CYP3A4",
+          "PPARG"
+        ]
+      },
+      "Developmental Toxicity": {
+        "overlap_count": 4,
+        "total_genes": 8,
+        "genes": [
+          "ESR1",
+          "RXRA",
+          "RARA",
+          "ESR2"
+        ]
+      },
+      "Immunotoxicity": {
+        "overlap_count": 3,
+        "total_genes": 8,
+        "genes": [
+          "IL6",
+          "NFKB1",
+          "TNF"
+        ]
+      },
+      "Metabolic Disorder": {
+        "overlap_count": 5,
+        "total_genes": 7,
+        "genes": [
+          "SREBF1",
+          "LEP",
+          "PPARA",
+          "ADIPOQ",
+          "FASN"
+        ]
+      },
+      "Thyroid Dysfunction": {
+        "overlap_count": 2,
+        "total_genes": 6,
+        "genes": [
+          "TSHR",
+          "TTR"
+        ]
+      },
+      "Cardiovascular": {
+        "overlap_count": 3,
+        "total_genes": 6,
+        "genes": [
+          "ADIPOQ",
+          "APOC3",
+          "LPL"
+        ]
+      }
+    },
+    "GenX": {
+      "Liver Toxicity": {
+        "overlap_count": 6,
+        "total_genes": 7,
+        "genes": [
+          "FABP1",
+          "ALB",
+          "CYP2B6",
+          "PPARA",
+          "CYP3A4",
+          "PPARG"
+        ]
+      },
+      "Developmental Toxicity": {
+        "overlap_count": 3,
+        "total_genes": 8,
+        "genes": [
+          "ESR1",
+          "RXRA",
+          "RARA"
+        ]
+      },
+      "Immunotoxicity": {
+        "overlap_count": 3,
+        "total_genes": 8,
+        "genes": [
+          "IL6",
+          "NFKB1",
+          "TNF"
+        ]
+      },
+      "Metabolic Disorder": {
+        "overlap_count": 4,
+        "total_genes": 7,
+        "genes": [
+          "PPARA",
+          "ADIPOQ",
+          "SREBF1",
+          "LEP"
+        ]
+      },
+      "Cancer": {
+        "overlap_count": 3,
+        "total_genes": 6,
+        "genes": [
+          "BCL2",
+          "CDKN1A",
+          "TP53"
+        ]
+      },
+      "Cardiovascular": {
+        "overlap_count": 2,
+        "total_genes": 6,
+        "genes": [
+          "ADIPOQ",
+          "LPL"
+        ]
+      }
+    }
+  },
+  "shared_genes": {
+    "shared_genes": {
+      "PPARA": [
+        "PFOA",
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ],
+      "PPARG": [
+        "PFOA",
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ],
+      "PPARGC1A": [
+        "PFOA",
+        "PFOS",
+        "GenX"
+      ],
+      "CYP2B6": [
+        "PFOA",
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ],
+      "CYP2C9": [
+        "PFOA",
+        "PFNA"
+      ],
+      "CYP3A4": [
+        "PFOA",
+        "PFNA",
+        "GenX"
+      ],
+      "FABP1": [
+        "PFOA",
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ],
+      "ALB": [
+        "PFOA",
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ],
+      "APOC3": [
+        "PFOA",
+        "PFNA"
+      ],
+      "LPL": [
+        "PFOA",
+        "PFNA",
+        "GenX"
+      ],
+      "RARB": [
+        "PFOA",
+        "PFOS"
+      ],
+      "RARA": [
+        "PFOA",
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ],
+      "RXRA": [
+        "PFOA",
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ],
+      "ESR1": [
+        "PFOA",
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ],
+      "ESR2": [
+        "PFOA",
+        "PFOS",
+        "PFNA"
+      ],
+      "IL4": [
+        "PFOA",
+        "PFOS"
+      ],
+      "IFNG": [
+        "PFOA",
+        "PFOS"
+      ],
+      "TNF": [
+        "PFOA",
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ],
+      "NFKB1": [
+        "PFOA",
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ],
+      "LEP": [
+        "PFOA",
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ],
+      "ADIPOQ": [
+        "PFOA",
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ],
+      "ADIPOR1": [
+        "PFOA",
+        "PFOS"
+      ],
+      "SREBF1": [
+        "PFOA",
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ],
+      "FASN": [
+        "PFOA",
+        "PFOS",
+        "PFNA"
+      ],
+      "GPX1": [
+        "PFOA",
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ],
+      "SOD1": [
+        "PFOA",
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ],
+      "CAT": [
+        "PFOA",
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ],
+      "NQO1": [
+        "PFOA",
+        "PFOS"
+      ],
+      "NRF2": [
+        "PFOA",
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ],
+      "TP53": [
+        "PFOA",
+        "GenX"
+      ],
+      "CDKN1A": [
+        "PFOA",
+        "GenX"
+      ],
+      "BCL2": [
+        "PFOA",
+        "GenX"
+      ],
+      "TSHR": [
+        "PFOA",
+        "PFOS",
+        "PFNA"
+      ],
+      "TTR": [
+        "PFOA",
+        "PFOS",
+        "PFNA"
+      ],
+      "THRA": [
+        "PFOA",
+        "PFOS"
+      ],
+      "THRB": [
+        "PFOA",
+        "PFOS"
+      ],
+      "UGT1A1": [
+        "PFOA",
+        "PFNA",
+        "GenX"
+      ],
+      "ABCB1": [
+        "PFOA",
+        "PFNA",
+        "GenX"
+      ],
+      "IL6": [
+        "PFOS",
+        "PFNA",
+        "GenX"
+      ]
+    },
+    "core_genes": [
+      "PPARA",
+      "PPARG",
+      "CYP2B6",
+      "FABP1",
+      "ALB",
+      "RARA",
+      "RXRA",
+      "ESR1",
+      "TNF",
+      "NFKB1",
+      "LEP",
+      "ADIPOQ",
+      "SREBF1",
+      "GPX1",
+      "SOD1",
+      "CAT",
+      "NRF2"
+    ],
+    "gene_count": {
+      "PPARA": 4,
+      "PPARG": 4,
+      "PPARGC1A": 3,
+      "CYP1A2": 1,
+      "CYP2B6": 4,
+      "CYP2C9": 2,
+      "CYP3A4": 3,
+      "FABP1": 4,
+      "ALB": 4,
+      "APOC3": 2,
+      "LPL": 3,
+      "PCSK9": 1,
+      "LDLR": 1,
+      "RARB": 2,
+      "RARA": 4,
+      "RXRA": 4,
+      "ESR1": 4,
+      "ESR2": 3,
+      "GPER1": 1,
+      "HNF4A": 1,
+      "FOXA2": 1,
+      "FOXA3": 1,
+      "IL4": 2,
+      "IL5": 1,
+      "IL13": 1,
+      "IFNG": 2,
+      "TNF": 4,
+      "NFKB1": 4,
+      "NFKBIA": 1,
+      "CD40": 1,
+      "CD40LG": 1,
+      "IGM": 1,
+      "IGA": 1,
+      "IGE": 1,
+      "LEP": 4,
+      "LEPR": 1,
+      "ADIPOQ": 4,
+      "ADIPOR1": 2,
+      "ADIPOR2": 1,
+      "SREBF1": 4,
+      "SREBF2": 1,
+      "FASN": 3,
+      "ACACA": 1,
+      "ACACB": 1,
+      "GPX1": 4,
+      "GPX2": 1,
+      "SOD1": 4,
+      "SOD2": 1,
+      "CAT": 4,
+      "NQO1": 2,
+      "NRF2": 4,
+      "KEAP1": 1,
+      "TP53": 2,
+      "CDKN1A": 2,
+      "MDM2": 1,
+      "BCL2": 2,
+      "BAX": 1,
+      "CASP3": 1,
+      "CCND1": 1,
+      "TSHR": 3,
+      "TPO": 1,
+      "TG": 1,
+      "TTR": 3,
+      "THRA": 2,
+      "THRB": 2,
+      "UGT1A1": 3,
+      "SULT1A1": 1,
+      "NAT2": 1,
+      "ABCB1": 3,
+      "ABCC1": 1,
+      "ABCC2": 1,
+      "CYP1A1": 1,
+      "CYP2C8": 1,
+      "CYP3A5": 1,
+      "APOC2": 1,
+      "LIPC": 1,
+      "CETP": 1,
+      "WNT5A": 1,
+      "WNT3A": 1,
+      "BMP4": 1,
+      "FGF8": 1,
+      "BDNF": 1,
+      "SNAP25": 1,
+      "SYN1": 1,
+      "DLG4": 1,
+      "GRIN1": 1,
+      "GRIN2B": 1,
+      "MAPK1": 1,
+      "MAPK3": 1,
+      "MAPK8": 1,
+      "CREB1": 1,
+      "IL2": 1,
+      "IL6": 3,
+      "IL10": 1,
+      "CD4": 1,
+      "CD8A": 1,
+      "GATA3": 1,
+      "TBX21": 1,
+      "GPX3": 1,
+      "GPX4": 1,
+      "DIO1": 1,
+      "DIO2": 1,
+      "KIM1": 1,
+      "HAVCR1": 1,
+      "LCN2": 1,
+      "NGAL": 1,
+      "NPHS1": 1,
+      "NPHS2": 1,
+      "UGT1A3": 1,
+      "SULT1E1": 1,
+      "ABCB11": 1,
+      "SLCO1B1": 1
+    }
+  },
+  "metal_overlap": {
+    "PFOA": {
+      "overlap_count": 13,
+      "overlap_genes": [
+        "NQO1",
+        "SOD2",
+        "TP53",
+        "SOD1",
+        "NFKB1",
+        "NRF2",
+        "BAX",
+        "CAT",
+        "GPX1",
+        "TNF",
+        "CDKN1A",
+        "CASP3",
+        "BCL2"
+      ]
+    },
+    "PFOS": {
+      "overlap_count": 14,
+      "overlap_genes": [
+        "MAPK3",
+        "NQO1",
+        "MAPK8",
+        "GPX4",
+        "SOD1",
+        "NFKB1",
+        "BDNF",
+        "NRF2",
+        "IL6",
+        "CAT",
+        "GPX1",
+        "TNF",
+        "MAPK1",
+        "HAVCR1"
+      ]
+    },
+    "PFNA": {
+      "overlap_count": 7,
+      "overlap_genes": [
+        "SOD1",
+        "NRF2",
+        "NFKB1",
+        "IL6",
+        "CAT",
+        "GPX1",
+        "TNF"
+      ]
+    },
+    "GenX": {
+      "overlap_count": 10,
+      "overlap_genes": [
+        "TP53",
+        "SOD1",
+        "NRF2",
+        "NFKB1",
+        "IL6",
+        "CAT",
+        "GPX1",
+        "TNF",
+        "CDKN1A",
+        "BCL2"
+      ]
+    }
+  }
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-Metal Network Toxicology</title>
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        .stats { display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap; }
+        .stat-box { background: white; padding: 20px; border-radius: 8px; 
+                     box-shadow: 0 2px 4px rgba(0,0,0,0.1); min-width: 150px; }
+        .stat-box h3 { margin: 0 0 10px 0; color: #3498db; font-size: 14px; }
+        .stat-box .number { font-size: 2em; font-weight: bold; color: #2c3e50; }
+        #network { width: 100%; height: 700px; border: 1px solid #ddd; 
+                   background: white; border-radius: 8px; }
+        .legend { display: flex; gap: 20px; margin: 15px 0; flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 8px; }
+        .legend-color { width: 20px; height: 20px; border-radius: 50%; }
+        .table-container { margin-top: 20px; background: white; padding: 20px; 
+                           border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #f5f5f5; font-weight: bold; }
+        .metal-cell { display: flex; align-items: center; gap: 10px; }
+        .metal-dot { width: 12px; height: 12px; border-radius: 50%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔬 多种重金属网络毒理学对比分析</h1>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <h3>分析金属</h3>
+                <div class="number">5</div>
+            </div>
+            <div class="stat-box">
+                <h3>靶点基因</h3>
+                <div class="number">103</div>
+            </div>
+            <div class="stat-box">
+                <h3>共享基因</h3>
+                <div class="number">9</div>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item"><div class="legend-color" style="background:#2c3e50"></div>铅 (Pb)</div>
+            <div class="legend-item"><div class="legend-color" style="background:#8e44ad"></div>砷 (As)</div>
+            <div class="legend-item"><div class="legend-color" style="background:#e67e22"></div>镉 (Cd)</div>
+            <div class="legend-item"><div class="legend-color" style="background:#3498db"></div>汞 (Hg)</div>
+            <div class="legend-item"><div class="legend-color" style="background:#27ae60"></div>锰 (Mn)</div>
+            <div class="legend-item"><div class="legend-color" style="background:#e74c3c"></div>共享基因</div>
+        </div>
+        
+        <div id="network"></div>
+        
+        <div class="table-container">
+            <h2>📊 金属毒性对比表</h2>
+            <table>
+                <tr>
+                    <th>金属</th>
+                    <th>靶点基因数</th>
+                    <th>主要通路</th>
+                    <th>主要疾病</th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="metal-cell">
+                            <div class="metal-dot" style="background:#2c3e50"></div>
+                            Pb (铅)
+                        </div>
+                    </td>
+                    <td>46</td>
+                    <td>Oxidative Stress</td>
+                    <td>Hypertension</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="metal-cell">
+                            <div class="metal-dot" style="background:#8e44ad"></div>
+                            As (砷)
+                        </div>
+                    </td>
+                    <td>41</td>
+                    <td>Oxidative Stress</td>
+                    <td>Skin Cancer</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="metal-cell">
+                            <div class="metal-dot" style="background:#e67e22"></div>
+                            Cd (镉)
+                        </div>
+                    </td>
+                    <td>42</td>
+                    <td>Oxidative Stress</td>
+                    <td>Lung Cancer</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="metal-cell">
+                            <div class="metal-dot" style="background:#3498db"></div>
+                            Hg (汞)
+                        </div>
+                    </td>
+                    <td>33</td>
+                    <td>Oxidative Stress</td>
+                    <td>Minamata Disease</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="metal-cell">
+                            <div class="metal-dot" style="background:#27ae60"></div>
+                            Mn (锰)
+                        </div>
+                    </td>
+                    <td>34</td>
+                    <td>Oxidative Stress</td>
+                    <td>Manganism</td>
+                </tr>
+
+            </table>
+        </div>
+        
+        <div class="table-container">
+            <h2>🧬 跨金属共享基因</h2>
+            <p>MAPK3, MAPK1, HSP70, MT1A, CAT, SOD1, GPX1, NQO1, AKT1</p>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        var nodes = new vis.DataSet([{"id": 0, "label": "Pb\n(\u94c5)", "color": "#2c3e50", "size": 40, "type": "metal"}, {"id": 1, "label": "As\n(\u7837)", "color": "#8e44ad", "size": 40, "type": "metal"}, {"id": 2, "label": "Cd\n(\u9549)", "color": "#e67e22", "size": 40, "type": "metal"}, {"id": 3, "label": "Hg\n(\u6c5e)", "color": "#3498db", "size": 40, "type": "metal"}, {"id": 4, "label": "Mn\n(\u9530)", "color": "#27ae60", "size": 40, "type": "metal"}, {"id": 5, "label": "MAPK3", "color": "#e74c3c", "size": 25, "type": "gene"}, {"id": 6, "label": "MAPK1", "color": "#e74c3c", "size": 25, "type": "gene"}, {"id": 7, "label": "HSP70", "color": "#e74c3c", "size": 25, "type": "gene"}, {"id": 8, "label": "MT1A", "color": "#e74c3c", "size": 25, "type": "gene"}, {"id": 9, "label": "CAT", "color": "#e74c3c", "size": 25, "type": "gene"}, {"id": 10, "label": "SOD1", "color": "#e74c3c", "size": 25, "type": "gene"}, {"id": 11, "label": "GPX1", "color": "#e74c3c", "size": 25, "type": "gene"}, {"id": 12, "label": "NQO1", "color": "#e74c3c", "size": 25, "type": "gene"}, {"id": 13, "label": "AKT1", "color": "#e74c3c", "size": 25, "type": "gene"}, {"id": 14, "label": "Microtubule Assembly", "color": "#3498db", "size": 20, "type": "pathway"}, {"id": 15, "label": "Apoptosis", "color": "#3498db", "size": 20, "type": "pathway"}, {"id": 16, "label": "Pyruvate Metabolism", "color": "#3498db", "size": 20, "type": "pathway"}, {"id": 17, "label": "MAPK Signaling", "color": "#3498db", "size": 20, "type": "pathway"}, {"id": 18, "label": "Protein Folding", "color": "#3498db", "size": 20, "type": "pathway"}, {"id": 19, "label": "Autophagy", "color": "#3498db", "size": 20, "type": "pathway"}, {"id": 20, "label": "Cell Cycle", "color": "#3498db", "size": 20, "type": "pathway"}, {"id": 21, "label": "Bone Remodeling", "color": "#3498db", "size": 20, "type": "pathway"}, {"id": 22, "label": "Cell Adhesion", "color": "#3498db", "size": 20, "type": "pathway"}, {"id": 23, "label": "Inflammatory Response", "color": "#3498db", "size": 20, "type": "pathway"}, {"id": 24, "label": "Skin Cancer", "color": "#9b59b6", "size": 22, "type": "disease"}, {"id": 25, "label": "Diabetes", "color": "#9b59b6", "size": 22, "type": "disease"}, {"id": 26, "label": "Manganism", "color": "#9b59b6", "size": 22, "type": "disease"}, {"id": 27, "label": "Minamata Disease", "color": "#9b59b6", "size": 22, "type": "disease"}, {"id": 28, "label": "Cognitive Decline", "color": "#9b59b6", "size": 22, "type": "disease"}, {"id": 29, "label": "Emphysema", "color": "#9b59b6", "size": 22, "type": "disease"}, {"id": 30, "label": "Chronic Kidney Disease", "color": "#9b59b6", "size": 22, "type": "disease"}, {"id": 31, "label": "Bladder Cancer", "color": "#9b59b6", "size": 22, "type": "disease"}, {"id": 32, "label": "Cardiovascular Disease", "color": "#9b59b6", "size": 22, "type": "disease"}, {"id": 33, "label": "Hepatic Cirrhosis", "color": "#9b59b6", "size": 22, "type": "disease"}]);
+        var edges = new vis.DataSet([{"from": 0, "to": 10, "color": "#ccc", "width": 1}, {"from": 0, "to": 9, "color": "#ccc", "width": 1}, {"from": 1, "to": 11, "color": "#ccc", "width": 1}, {"from": 1, "to": 10, "color": "#ccc", "width": 1}, {"from": 2, "to": 10, "color": "#ccc", "width": 1}, {"from": 2, "to": 9, "color": "#ccc", "width": 1}, {"from": 2, "to": 11, "color": "#ccc", "width": 1}]);
+        
+        var container = document.getElementById('network');
+        var data = { nodes: nodes, edges: edges };
+        var options = {
+            nodes: { 
+                shape: 'dot',
+                font: { size: 12, face: 'Arial' },
+                borderWidth: 2,
+                shadow: true
+            },
+            edges: { 
+                color: { color: '#ccc', highlight: '#3498db' },
+                smooth: { type: 'continuous' }
+            },
+            physics: { 
+                stabilization: true,
+                barnesHut: { gravitationalConstant: -2000 }
+            },
+            interaction: { hover: true, tooltipDelay: 100 }
+        };
+        
+        var network = new vis.Network(container, data, options);
+    </script>
+</body>
+</html>

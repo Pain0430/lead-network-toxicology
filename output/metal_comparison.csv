@@ -1,0 +1,6 @@
+Metal,Symbol,Name,Gene_Count,Unique_Genes,Top_Pathway,Top_Disease,Color
+Lead,Pb,铅,46,45,Oxidative Stress,Hypertension,#2c3e50
+Arsenic,As,砷,41,39,Oxidative Stress,Skin Cancer,#8e44ad
+Cadmium,Cd,镉,42,42,Oxidative Stress,Lung Cancer,#e67e22
+Mercury,Hg,汞,33,33,Oxidative Stress,Minamata Disease,#3498db
+Manganese,Mn,锰,34,34,Oxidative Stress,Manganism,#27ae60
