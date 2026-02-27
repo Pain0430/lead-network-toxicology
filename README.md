@@ -36,7 +36,15 @@
 - 决策曲线分析(DCA)
 - 校准曲线
 
-### 7. 交互式可视化
+### 7. 因果推断分析 (`causal_inference.py`)
+- DAG有向无环图构建与可视化
+- 倾向评分匹配 (PSM)
+- 逆概率加权 (IPTW)
+- 双重稳健估计 (AIPW)
+- 协变量平衡评估 (SMD, VR)
+- 敏感性分析 (E-value)
+
+### 8. 交互式可视化
 - 交互式森林图
 - 交互式列线图
 - 交互式网络图
@@ -50,6 +58,9 @@
 - `output/network_analysis_report.txt` - 网络分析报告
 - `output/pathway_analysis_report.txt` - 通路分析报告
 - `output/mediation_report.txt` - 中介效应报告
+- `output/causal_effects.csv` - 因果效应结果
+- `output/sensitivity_analysis.csv` - 敏感性分析结果
+- `output/causal_inference_full.json` - 完整因果推断结果
 
 ### 可视化图表
 详见 `output/` 目录
@@ -64,6 +75,7 @@ python publication_bias_analysis.py
 python biomarker_network_analysis.py
 python pathway_enrichment_analysis.py
 python mediation_analysis.py
+python causal_inference.py
 
 # 生成综合报告
 python generate_report.py
@@ -75,10 +87,11 @@ python generate_report.py
 2. **核心风险因素**: 职业暴露(OR=2.57), 血铅(OR=2.17)
 3. **关键通路**: 氧化应激 > NF-κB炎症 > 肠-肝轴
 4. **预测性能**: AUC = 0.944
+5. **因果推断**: AIPW方法确认铅暴露对CKM的因果效应
 
 ## 作者
 
 **Pain** - 重庆医科大学 公共卫生学院 副教授
 
 ---
-*生成日期: 2026-02-27*
+*生成日期: 2026-02-28*
