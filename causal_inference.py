@@ -360,6 +360,91 @@ class CausalInferenceAnalyzer:
             'n': len(self.data)
         }
     
+
+    def doubly_robust_estimation(self):
+        """
+        双重稳健估计 (AIPW - Augmented Inverse Probability Weighting)
+        
+        结合倾向评分和结果回归，即使模型误设也能得到一致估计
+        
+        返回:
+            dict: AIPW结果
+        """
+        from sklearn.linear_model import LogisticRegression, Ridge
+        from sklearn.ensemble import RandomForestRegressor
+        
+        # 准备数据
+        available_confounders = [c for c in self.confounders if c in self.data.columns]
+        X = self.data[available_confounders].fillna(self.data[available_confounders].median())
+        T = self.data[self.treatment].values
+        Y = self.data[self.outcome].values
+        
+        # 步骤1: 估计倾向评分
+        ps_model = LogisticRegression(max_iter=1000, random_state=42)
+        ps_model.fit(X, T)
+        ps = ps_model.predict_proba(X)[:, 1]
+        ps = np.clip(ps, 0.05, 0.95)
+        
+        # 步骤2: 估计结果模型
+        treated_mask = T == 1
+        control_mask = T == 0
+        
+        # E(Y|X)
+        outcome_model = Ridge(alpha=1.0)
+        outcome_model.fit(X, Y)
+        mu_x = outcome_model.predict(X)
+        
+        # E(Y|X, T=1)
+        if sum(treated_mask) > 10:
+            mu1_model = RandomForestRegressor(n_estimators=50, max_depth=5, random_state=42)
+            mu1_model.fit(X[treated_mask], Y[treated_mask])
+            mu1_x = mu1_model.predict(X)
+        else:
+            mu1_x = mu_x
+        
+        # E(Y|X, T=0)
+        if sum(control_mask) > 10:
+            mu0_model = RandomForestRegressor(n_estimators=50, max_depth=5, random_state=42)
+            mu0_model.fit(X[control_mask], Y[control_mask])
+            mu0_x = mu0_model.predict(X)
+        else:
+            mu0_x = mu_x
+        
+        # 步骤3: 计算AIPW估计量
+        robust_part = (
+            (T / ps) * (Y - mu1_x) -
+            ((1 - T) / (1 - ps)) * (Y - mu0_x)
+        )
+        adjustment = mu1_x - mu0_x
+        aipw_estimate = np.mean(adjustment) + np.mean(robust_part)
+        
+        # Bootstrap CI
+        n_bootstrap = 500
+        boot_ates = []
+        
+        for _ in range(n_bootstrap):
+            idx = np.random.choice(len(self.data), len(self.data), replace=True)
+            X_b, T_b, Y_b = X.iloc[idx], T[idx], Y[idx]
+            ps_b, mu1_b, mu0_b = ps[idx], mu1_x[idx], mu0_x[idx]
+            
+            robust_b = ((T_b / ps_b) * (Y_b - mu1_b) - ((1 - T_b) / (1 - ps_b)) * (Y_b - mu0_b))
+            boot_ates.append(np.mean(mu1_b - mu0_b) + np.mean(robust_b))
+        
+        ci_lower, ci_upper = np.percentile(boot_ates, 2.5), np.percentile(boot_ates, 97.5)
+        
+        # 效率提升
+        ipw_var = np.var([(T[i]/ps[i] + (1-T[i])/(1-ps[i])) * Y[i] for i in range(len(Y))])
+        aipw_var = np.var(adjustment + robust_part)
+        efficiency_ratio = ipw_var / aipw_var if aipw_var > 0 else np.nan
+        
+        print(f"✓ AIPW完成: ATE = {aipw_estimate:.4f} [{ci_lower:.4f}, {ci_upper:.4f}]")
+        print(f"  效率提升: {efficiency_ratio:.2f}x (相对于IPTW)")
+        
+        self.data['propensity_score_aipw'] = ps
+        
+        return {'method': 'AIPW', 'ATE': aipw_estimate, 'CI_lower': ci_lower, 
+                'CI_upper': ci_upper, 'efficiency_ratio': efficiency_ratio, 'n': len(self.data)}
+
     def assess_covariate_balance(self, matched_data=None):
         """
         评估协变量平衡
@@ -551,19 +636,25 @@ class CausalInferenceAnalyzer:
         self.plot_iptw_weights()
         results['iptw'] = ate_iptw
         
-        # 5. 综合因果效应
-        print("\n[5/6] 综合因果效应估计...")
-        combined_ate = (ate_psm['ATE'] + ate_iptw['ATE']) / 2
+        # 5. 双重稳健估计 (AIPW)
+        print("\n[5/7] 双重稳健估计 (AIPW)...")
+        ate_aipw = self.doubly_robust_estimation()
+        results['aipw'] = ate_aipw
+        
+        # 6. 综合因果效应
+        print("\n[6/7] 综合因果效应估计...")
+        combined_ate = (ate_psm['ATE'] + ate_iptw['ATE'] + ate_aipw['ATE']) / 3
         
         results['combined'] = {
             'ATE': combined_ate,
             'PSM_ATE': ate_psm['ATE'],
             'IPTW_ATE': ate_iptw['ATE'],
+            'AIPW_ATE': ate_aipw['ATE'],
             'Conclusion': '铅暴露显著增加CKM综合征风险' if combined_ate > 0 else '未发现显著因果效应'
         }
         
-        # 6. 敏感性分析
-        print("\n[6/6] 敏感性分析...")
+        # 7. 敏感性分析
+        print("\n[7/7] 敏感性分析...")
         sensitivity = self.sensitivity_analysis(combined_ate)
         results['sensitivity'] = sensitivity
         
@@ -583,6 +674,7 @@ class CausalInferenceAnalyzer:
         effects_df = pd.DataFrame([
             results['psm'],
             results['iptw'],
+            results['aipw'],
             {**results['combined'], 'method': 'Combined'}
         ])
         effects_df.to_csv(f'{OUTPUT_DIR}/causal_effects.csv', index=False)
@@ -676,6 +768,7 @@ if __name__ == '__main__':
     print("关键结果摘要:")
     print(f"  PSM ATE: {results['psm']['ATE']:.3f}")
     print(f"  IPTW ATE: {results['iptw']['ATE']:.3f}")
+    print(f"  AIPW ATE: {results['aipw']['ATE']:.3f}")
     print(f"  综合ATE: {results['combined']['ATE']:.3f}")
     print(f"  E-value: {results['sensitivity']['E_value']:.3f}")
     print("=" * 60)
