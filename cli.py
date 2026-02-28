@@ -97,6 +97,13 @@ def main():
     # 完整分析
     parser_all = subparsers.add_parser('all', help='运行完整分析流程')
     
+    # 生存分析 (中风)
+    parser_survival = subparsers.add_parser('survival', help='运行中风生存分析')
+    parser_survival.add_argument('--type', choices=['stroke', 'general', 'all'],
+                                 default='stroke', help='分析类型 (默认: stroke)')
+    parser_survival.add_argument('--sample', type=int, default=2000,
+                                 help='样本量 (默认: 2000)')
+    
     args = parser.parse_args()
     
     # 如果没有子命令，显示帮助
@@ -125,8 +132,38 @@ def main():
         return run_report(args)
     elif args.command == 'all':
         return run_all_analysis(args)
+    elif args.command == 'survival':
+        return run_survival_analysis(args)
     
     return 0
+
+
+def run_survival_analysis(args):
+    """运行中风生存分析"""
+    print("\n" + "="*60)
+    print("运行中风生存分析...")
+    print("="*60)
+    
+    try:
+        from stroke_survival_analysis import generate_stroke_survival_data, create_stroke_survival_report
+        
+        print(f"\n生成模拟数据 (n={args.sample})...")
+        df = generate_stroke_survival_data(n=args.sample)
+        
+        result = create_stroke_survival_report(df, output_dir=args.output)
+        
+        print("\n✓ 中风生存分析完成!")
+        print(f"  结果保存至: {args.output}")
+        return 0
+        
+    except ImportError as e:
+        print(f"\n✗ 无法导入 stroke_survival_analysis: {e}")
+        return 1
+    except Exception as e:
+        print(f"\n✗ 分析出错: {e}")
+        import traceback
+        traceback.print_exc()
+        return 1
 
 
 def run_causal_analysis(args):
