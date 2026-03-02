@@ -107,3 +107,38 @@
 ---
 
 *本项目: https://github.com/Pain0430/lead-network-toxicology*
+
+---
+
+## 2026-03-02 今日更新
+
+### 4. 心血管疾病生存预测 + 重金属 (最新!)
+
+**Frontiers in Public Health (2025-12)**
+- 标题: Developing machine learning models for predicting cardiovascular disease survival based on heavy metal serum and urine levels
+- 作者: Jin H, Zhang L, Sun Y, Xu Y, Luo M (2025)
+- 亮点: 
+  - 基于血清和尿液重金属水平预测CVD生存
+  - 多模型对比: RF, XGBoost, Neural Network
+  - SHAP可解释性分析
+- DOI: 10.3389/fpubh.2025.1582779
+
+**Frontiers in Digital Health (2025-10)**
+- 标题: Machine learning and explainable artificial intelligence to predict and interpret lead toxicity in pregnant women and unborn baby
+- 亮点: XAI用于孕妇铅毒性预测
+- DOI: 10.3389/fdgth.2025.1608949
+
+### 5. 本项目新模块
+
+**新增: cvd_survival_heavy_metal.py**
+- 功能: 基于重金属血清/尿液水平预测CVD
+- 模型: Random Forest, Gradient Boosting, Logistic Regression
+- 输出: ROC曲线、特征重要性、热图、重金属比较图
+- 测试AUC: 0.5894
+
+### 6. 未来工作方向
+
+1. 整合真实NHANES数据 (2003-2018)
+2. 加入生存分析 (Cox回归, Kaplan-Meier)
+3. 时间依赖ROC分析
+4. 与现有CKM模块整合
